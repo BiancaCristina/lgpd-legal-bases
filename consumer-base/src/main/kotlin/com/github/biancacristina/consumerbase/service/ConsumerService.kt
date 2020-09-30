@@ -15,6 +15,13 @@ class ConsumerService(private val emissionApi: EmissionApi,
         emissionApi.save(EmissionRequest(cpf = userRequest.cpf))
         registerApi.save(RegisterRequest(name = userRequest.name,
                                          password = userRequest.password,
-                                         username = userRequest.username))
+                                         username = userRequest.username,
+                                         address = userRequest.address,
+                                         number = userRequest.number,
+                                         neighbourhood = userRequest.neighbourhood,
+                                         complement = userRequest.complement,
+                                         city = userRequest.city,
+                                         state = userRequest.state,
+                                         cep = userRequest.cep))
     }
 }

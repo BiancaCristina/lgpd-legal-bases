@@ -15,10 +15,16 @@ class RegisterService(private val registerRepository: RegisterRepository) {
 
     @Transactional
     fun save(request: RegisterRequest): Register {
-        request.password
         return registerRepository.save(Register(name = request.name,
                                                 username = request.username,
-                                                password = generateHashPassword(request.password)))
+                                                password = generateHashPassword(request.password),
+                                                address = request.address,
+                                                number = request.number,
+                                                neighbourhood = request.neighbourhood,
+                                                complement = request.complement,
+                                                city = request.city,
+                                                state = request.state,
+                                                cep = request.cep))
     }
 
     private fun generateHashPassword(password: String) = BCrypt.hashpw(password, BCrypt.gensalt(SALT))
