@@ -10,6 +10,7 @@ import javax.validation.Valid
 @RequestMapping("/consumer")
 class ConsumerController(private val consumerService: ConsumerService) {
 
+    @CrossOrigin
     @PostMapping("/create-user")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun createUser(@Valid @RequestBody userRequest: UserRequest) {
